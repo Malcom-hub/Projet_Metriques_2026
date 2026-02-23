@@ -29,9 +29,13 @@ def api_paris():
 
     return jsonify(result)
 
-@app.route('/rapport')
-def MaDeuxièmeAPI():
-    return "<h2>Ma page de rapport</h2>"
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/rapport")
+def rapport():
+    return render_template("graphique.html")
 
 
 # Ne rien mettre après ce commentaire

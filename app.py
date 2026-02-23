@@ -21,6 +21,16 @@ def api_paris():
     times = data.get("hourly", {}).get("time", [])
     temps = data.get("hourly", {}).get("temperature_2m", [])
 
+
+
+    n = min(len(times), len(temps))
+    result = [
+        {"datetime": times[i], "temperature_c": temps[i]}
+        for i in range(n)
+    ]
+
+    return jsonify(result)
+
     n = min(len(times), len(temps))
     result = [
         {"datetime": times[i], "temperature_c": temps[i]}
